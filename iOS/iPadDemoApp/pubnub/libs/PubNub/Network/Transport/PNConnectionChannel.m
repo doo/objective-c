@@ -1169,12 +1169,12 @@ shouldObserveProcessing:(BOOL)shouldObserveProcessing
 
     if ([self.storedRequestsList count]) {
 
-        PNError *error = nil;
+        PNError *localError = nil;
         if ([[PubNub sharedInstance].reachability isServiceAvailable]) {
 
             error = [PNError errorWithCode:kPNRequestExecutionFailedClientNotReadyError];
         }
-        [self makeScheduledRequestsFail:[NSArray arrayWithArray:self.storedRequestsList] withError:error];
+        [self makeScheduledRequestsFail:[NSArray arrayWithArray:self.storedRequestsList] withError:localError];
     }
 
 
